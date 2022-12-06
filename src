@@ -1,0 +1,47 @@
+//Üslü sayı
+
+import java.util.Scanner;
+public class uslu_sayi {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int taban, us, total=1, depo;
+
+        System.out.print("Önce taban sonra üssü giriniz: ");
+        taban=sc.nextInt();
+        us=sc.nextInt();
+        depo=us;
+
+        while((us>0 && taban>0) || (us>0 && taban<0)){
+            total=total*taban;
+            us--;
+        }
+
+        if((us<0 && taban>0) || (us<0 && taban<0)) {
+            us=us*(-1);
+            while(us>0){
+                total=total*taban;
+                us--;
+            }
+            //double i = 1 / total;
+
+            if(taban<0) {
+                total*=-1;
+                System.out.println(taban + " üzeri " + depo + " = " + "-1/" + total);
+            }
+            else if(taban>0)
+                System.out.println(taban +" üzeri "+ depo + " = " + "1/" +total);
+        }
+        else if(us==0 && taban==0)
+            System.out.println("Tanımsızdır.");
+
+        else if(taban==0 && us>0)
+            System.out.println("0'ın her kuvveti 0'dır.");
+
+        else if(taban==0 && us<0)
+            System.out.println("0'ın negatif kuvvetleri tanımsızdır.");
+
+        else
+             System.out.println(taban +" üzeri "+ depo + " = " + total);
+        
+    }
+}
